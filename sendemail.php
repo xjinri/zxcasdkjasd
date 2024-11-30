@@ -1,11 +1,17 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Retrieve form data
-    $name = htmlspecialchars(trim($_GET['name']));
-    $email = htmlspecialchars(trim($_GET['email']));
-    $subject = htmlspecialchars(trim($_GET['subject']));
-    $phone = htmlspecialchars(trim($_GET['phone']));
-    $message = htmlspecialchars(trim($_GET['message']));
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve and sanitize form data
+    $name = htmlspecialchars(trim($_POST['name']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $subject = htmlspecialchars(trim($_POST['subject']));
+    $phone = htmlspecialchars(trim($_POST['phone']));
+    $message = htmlspecialchars(trim($_POST['message']));
+
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Please enter a valid email address.'); window.history.back();</script>";
+        exit();
+    }
 
     // Set the recipient email address
     $to = "rgnrvr30@gmail.com"; // Replace with your email address
@@ -33,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 } else {
     // Redirect to the homepage if accessed directly
-    header("https://xjinri.github.io/zxcasdkjasd/");
+    header("Location: /");  // Update the redirect URL if necessary
     exit();
 }
 ?>
