@@ -7,12 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = htmlspecialchars(trim($_POST['phone']));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    // Validate required fields
-    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
-        echo "<script>alert('All fields are required. Please fill out the form completely.'); window.history.back();</script>";
-        exit();
-    }
-
     // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<script>alert('Please enter a valid email address.'); window.history.back();</script>";
@@ -25,18 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Email content
     $email_body = "
-        <html>
-        <head>
-            <title>New Contact Form Submission</title>
-        </head>
-        <body>
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> $name</p>
-            <p><strong>Email:</strong> $email</p>
-            <p><strong>Phone:</strong> $phone</p>
-            <p><strong>Message:</strong><br>$message</p>
-        </body>
-        </html>
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> $name</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Message:</strong><br>$message</p>
     ";
 
     // Email headers
@@ -52,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     // Redirect to the homepage if accessed directly
-    header("Location: /");
+    header("https://xjinri.github.io/zxcasdkjasd/");  // Update the redirect URL if necessary
     exit();
 }
 ?>
