@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     // Redirect to the homepage if accessed directly
-    header("https://xjinri.github.io/zxcasdkjasd/");  // Update the redirect URL if necessary
+    header("Location: https://xjinri.github.io/zxcasdkjasd/");  // Correct redirection URL
     exit();
 }
 ?>
