@@ -1,11 +1,11 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Retrieve form data
-    $name = htmlspecialchars(trim($_POST['name']));
-    $email = htmlspecialchars(trim($_POST['email']));
-    $subject = htmlspecialchars(trim($_POST['subject']));
-    $phone = htmlspecialchars(trim($_POST['phone']));
-    $message = htmlspecialchars(trim($_POST['message']));
+    $name = htmlspecialchars(trim($_GET['name']));
+    $email = htmlspecialchars(trim($_GET['email']));
+    $subject = htmlspecialchars(trim($_GET['subject']));
+    $phone = htmlspecialchars(trim($_GET['phone']));
+    $message = htmlspecialchars(trim($_GET['message']));
 
     // Set the recipient email address
     $to = "rgnrvr30@gmail.com"; // Replace with your email address
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } else {
     // Redirect to the homepage if accessed directly
-    header("Location: /");
+    header("https://xjinri.github.io/zxcasdkjasd/");
     exit();
 }
 ?>
